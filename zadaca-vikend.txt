@@ -1,0 +1,13 @@
+public struct Student
+{
+    // Properties: ID, Name, DateOfBirth, Ocenki
+    // Methods: AddGrade(), CalculateAverage()
+    // Constructor(s)
+}
+
+public struct Course
+{
+    // Properties: CourseID, Name, TeacherName
+    // List of enrolled students
+    // Methods: EnrollStudent(), DropStudent(), GetClassAverage()
+}

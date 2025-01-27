@@ -11,3 +11,63 @@ public struct Course
     // List of enrolled students
     // Methods: EnrollStudent(), DropStudent(), GetClassAverage()
 }
+
+//kopiraj od tuka nadole
+
+Dictionary<string, Student> personaldatasheet = new Dictionary<string, Student>();
+
+DateOnly dateOfBirth = new DateOnly(1978, 05, 12);
+int[] ocenki = new int[] { 5, 6, 10 };
+Student s1 = new Student("001", "Dragan Petkov", ocenki, dateOfBirth);
+
+dateOfBirth = new DateOnly(1999, 02, 12);
+ocenki = new int[] { 5, 9, 10 };
+Student s2 = new Student("002", "Zoran Stoev", ocenki, dateOfBirth);
+
+dateOfBirth = new DateOnly(2001, 02, 12);
+ocenki = new int[] { 6, 9, 10 };
+Student s3 = new Student("003", "Goran Gogov", ocenki, dateOfBirth);
+
+s1.AddGrade(9);
+foreach (string key in personaldatasheet.Keys) ; ;
+{
+    Console.WriteLine(personaldatasheet.Keys);
+}
+
+
+public struct Student
+{
+    public string id;
+    public string name;
+    public int[] ocenki;
+    public DateOnly dateofbirth;
+
+
+    public Student(string id, string name, int[] ocenki, DateOnly dateofbirth)
+    {
+        this.id = id;
+        this.name = name;
+        this.ocenki = ocenki;
+        this.dateofbirth = dateofbirth;
+    }
+
+    public void AddGrade(int ocenka)
+    {
+        int[] newOcenki = new int[ocenki.Length + 1];
+        int pozicija = 0;
+
+        foreach (int staraOcenkaVoStarataNiza in ocenki)
+        {
+            newOcenki[pozicija++] = staraOcenkaVoStarataNiza;
+        }
+
+        newOcenki[pozicija] = ocenka;
+
+        ocenki = newOcenki;
+
+    }
+    public override string ToString()
+    {
+        return $"Name: {name}, ocenki: {ocenki}, dateofbirth: {dateofbirth}";
+    }
+}
